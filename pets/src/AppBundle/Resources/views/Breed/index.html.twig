@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+{% block title %}Breed{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <h2>Breed list</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th class="col-lg-1">#</th>
+                <th class="col-lg-7">Name</th>
+                <th class="col-lg-4">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for breed in entities %}
+                <tr>
+                    <td>
+                        <a href="{{ path('admin_breed_show', { 'id': breed.id }) }}">{{ breed.id }}</a>
+                    </td>
+                    <td>{{ breed.name }}</td>
+                    <td>
+                        <a href="{{ path('admin_breed_edit', { 'id': breed.id }) }}" class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-edit"></span> Edit
+                        </a>
+                        <a href="{{ path('admin_breed_delete', { 'id': breed.id }) }}" class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span> Delete
+                        </a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,4 @@
+dogs.form.type.registration_type:
+    class: %dogs.form.type.registration_type.class%
+    tags:
+        - { name: form.type, alias: registration_type }

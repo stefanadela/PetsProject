@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+{% block title %}Edit User{% endblock %}
+{% block body -%}
+    <div class="container center-block">
+        <h2>User edit</h2>
+        <div class="row centered-form">
+            <div class="panel-body">
+                {{ form_start(edit_form) }}
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            {{ form_label(edit_form.username) }}
+                            {{ form_widget(edit_form.username) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            {{ form_label(edit_form.firstName) }}
+                            {{ form_widget(edit_form.firstName) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            {{ form_label(edit_form.lastName) }}
+                            {{ form_widget(edit_form.lastName) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            {{ form_row(edit_form.password.first) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            {{ form_row(edit_form.password.second) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        {{ form_widget(edit_form.submit, {'attr' : {'class':'btn btn-info'}}) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

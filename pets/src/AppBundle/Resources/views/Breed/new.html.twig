@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+{% block title %}Add Breed{% endblock %}
+{% block body -%}
+    <div class="container center-block">
+        <h2>Add Breed</h2>
+        <div class="row centered-form">
+            <div class="panel-body">
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            {{ form_label(form.name) }}
+                            {{ form_widget(form.name) }}
+                        </div>
+                    </div>
+                </div>
+
+                {{ form_row(form.submit, {'attr':{'class' : 'btn btn-info'}}) }}
+                {{ form_end(form) }}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

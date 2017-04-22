@@ -1,0 +1,43 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Adela_PC
+ * Date: 29.01.2017
+ * Time: 17:20
+ */
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Entity\Breed;
+
+/**
+ * Class Color
+ * @ORM\Entity
+ * @ORM\Table(name="color")
+ * @UniqueEntity(fields="name", message="Name already taken")
+ *
+ * @package AppBundle\Entity
+ */
+class Color
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=100, unique=true)
+     */
+    private $name;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Breed", mappedBy="color")
+     */
+    private $breed;
+
+}

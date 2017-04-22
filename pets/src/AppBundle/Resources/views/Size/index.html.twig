@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+{% block title %}Size{% endblock %}
+{% block body -%}
+    <div class="container">
+        <h2>Size list</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for size in entities %}
+                <tr>
+                    <td>
+                        <a href="{{ path('admin_size_show', { 'id': size.id }) }}">{{ size.id }}</a>
+                    </td>
+                    <td>{{ size.name }}</td>
+                    <td>
+                        <a href="{{ path('admin_size_edit', { 'id': size.id }) }}" class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-edit"></span> Edit
+                        </a>
+                        <a href="{{ path('admin_size_delete', { 'id': size.id }) }}" class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span> Delete
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}

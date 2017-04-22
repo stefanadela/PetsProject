@@ -1,0 +1,7 @@
+#parameters:
+#    dog_core.form.add_breed.class: AppBundle\Form\AddBreedType
+#services:
+#    dog_core.form.type.add_breed:
+#        class: %dog_core.form.add_breed.class%
+#        tags:
+#            - { name: form.type, alias: 'add_breed_type'}

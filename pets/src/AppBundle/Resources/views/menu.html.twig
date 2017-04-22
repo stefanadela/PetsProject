@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block menu %}
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">Users <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ path('admin_list_user') }}">List</a></li>
+                            <li><a href="{{ path('admin_user_new') }}">Add</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">Breeds <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ path('admin_list_breed') }}">List</a></li>
+                            <li><a href="{{ path('admin_breed_new') }}">Add</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">Sizes <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ path('admin_list_size') }}">List</a></li>
+                            <li><a href="{{ path('admin_size_new') }}">Add</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="{{ path('admin_list_breed') }}" class="dropdown-toggle"
+                           data-toggle="dropdown">Colors <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ path('admin_list_color') }}">List</a></li>
+                            <li><a href="{{ path('admin_color_new') }}">Add</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <div class="btn btn-default navbar-btn margin-right-10">
+                            <a href="{{ path('logout') }}">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}

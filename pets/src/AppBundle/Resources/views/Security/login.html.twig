@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    {% stylesheets 'bundles/app/css/Security/security.css' filter="cssrewrite" %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+
+    {% if error %}
+        <div>{{ error.message }}</div>
+    {% endif %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pr-wrap">
+                    <div class="pass-reset">
+                        <label>
+                            Enter the email you signed up with</label>
+                        <input type="email" placeholder="Email"/>
+                        <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm"/>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <p class="form-title">
+                        Sign In</p>
+
+                    <form action="{{ path('login_check') }}" method="post" name="login" class="login">
+                        <input type="text" placeholder="Username" id="username" name="_username"/>
+                        <input type="password" placeholder="Password" id="password" name="_password"/>
+                        <input type="submit" value="Login" class="btn btn-success btn-sm"/>
+                        <input type="button" value="Sign Up with Facebook" class="btn btn-primary"
+                               onclick="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}"/>
+
+
+                        {#<div class="facebook-submit">#}
+                        {#<button id="btn-fbsignup" type="button" class="btn btn-primary">#}
+                        {#<a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" >#}
+                        {#<span>Sign Up with Facebook</span>#}
+                        {#</a>#}
+                        {#</button>#}
+                        {#</div>#}
+
+                        <div class="remember-forgot">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"/>
+                                            Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 forgot-pass-content">
+                                    <a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {#<form action="{{ path('login_check') }}" method="post">#}
+    {#<label for="username">Username:</label>#}
+    {#<input type="text" id="username" name="_username" />#}
+
+    {#<label for="password">Password:</label>#}
+    {#<input type="password" id="password" name="_password"/>#}
+
+    {#<button type="submit">login</button>#}
+    {#</form>#}
+
+    {#<a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">#}
+    {#<span>Facebook</span>#}
+    {#</a>#}
+    {#<a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}">#}
+    {#<span>Google</span>#}
+    {#</a>#}
+
+
+{% endblock %}

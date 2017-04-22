@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+{% block title %}Users{% endblock %}
+{% block body -%}
+    <div class="container">
+        <h2>User list</h2>
+
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tbody>
+            {% for user in entities %}
+                <tr>
+                    <td><a href="{{ path('admin_user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a href="{{ path('admin_user_delete', { 'id': user.id }) }}" class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span> Delete
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
